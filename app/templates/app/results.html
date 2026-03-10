@@ -1,0 +1,89 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}Results | AI Smart Worksheet{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'app/css/results.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="results-container">
+
+    <!-- Header -->
+    <div class="results-header">
+        <h1>Your Results</h1>
+        <p class="results-subtitle">See how you performed in this practice session</p>
+    </div>
+
+
+    <!-- Score Summary -->
+    <div class="results-summary">
+
+        <div class="result-card">
+            <h3>Score</h3>
+            <p id="resultScore" class="result-value">0</p>
+        </div>
+
+        <div class="result-card">
+            <h3>Total Questions</h3>
+            <p id="resultTotal" class="result-value">0</p>
+        </div>
+
+        <div class="result-card">
+            <h3>Accuracy</h3>
+            <p id="resultAccuracy" class="result-value">0%</p>
+        </div>
+
+    </div>
+
+
+    <!-- Performance Chart -->
+    <div class="results-chart">
+
+        <h2>Performance Breakdown</h2>
+
+        <canvas id="resultsChart"></canvas>
+
+    </div>
+
+
+    <!-- Action Buttons -->
+    <div class="results-actions">
+
+        <a href="{% url 'app:practice' %}" class="btn-primary">
+            Practice Again
+        </a>
+
+        <a href="{% url 'app:dashboard' %}" class="btn-secondary">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <!-- Empty State -->
+    <div id="noResultsState" class="no-data hidden">
+
+        <img
+            src="{% static 'app/images/no-results.png' %}"
+            alt="No results available"
+        >
+
+        <p>No results available yet.</p>
+
+        <a href="{% url 'app:practice' %}" class="btn-primary">
+            Start Practicing
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'app/js/charts.js' %}"></script>
+{% endblock %}

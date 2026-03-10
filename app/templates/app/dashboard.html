@@ -1,0 +1,114 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard | AI Smart Worksheet{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'app/css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <!-- Page Header -->
+    <div class="dashboard-header">
+        <h1>Welcome, {{ user.username }}</h1>
+        <a href="{% url 'app:practice' %}" class="btn-primary">
+            Start Practice
+        </a>
+    </div>
+
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Level</h3>
+            <p class="stat-value">{{ profile.level }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Points</h3>
+            <p class="stat-value">{{ profile.points }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Questions Answered</h3>
+            <p class="stat-value">{{ profile.questions_answered }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Correct Answers</h3>
+            <p class="stat-value">{{ profile.correct_answers }}</p>
+        </div>
+
+    </div>
+
+
+    <!-- Charts Section -->
+    <div class="charts-grid">
+
+        <div class="chart-card">
+            <h3>Performance Over Time</h3>
+            <canvas id="performanceChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Accuracy by Topic</h3>
+            <canvas id="topicChart"></canvas>
+        </div>
+
+    </div>
+
+
+    <!-- Recent Quiz Sessions -->
+    <div class="recent-sessions">
+
+        <h2>Recent Sessions</h2>
+
+        {% if sessions %}
+        <table class="session-table">
+
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Score</th>
+                    <th>Questions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for session in sessions %}
+                <tr>
+                    <td>{{ session.started_at|date:"M d, Y H:i" }}</td>
+                    <td>{{ session.score }}</td>
+                    <td>{{ session.total_questions }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="no-data">
+            <img src="{% static 'app/images/no-history.png' %}" alt="No history">
+            <p>No quiz sessions yet. Start practicing to see your progress.</p>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'app/js/charts.js' %}"></script>
+<script src="{% static 'app/js/dashboard.js' %}"></script>
+{% endblock %}

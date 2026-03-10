@@ -1,0 +1,23 @@
+/* Global design tokens */
+
+:root {
+    --color-bg: #050816;
+    --color-bg-alt: #0f172a;
+    --color-surface: #111827;
+    --color-surface-alt: #020617;
+    --color-primary: #6366f1;
+    --color-primary-soft: rgba(99, 102, 241, 0.12);
+    --color-secondary: #22c55e;
+    --color-accent: #06b6d4;
+    --color-border: rgba(148, 163, 184, 0.3);
+    --color-muted: #9ca3af;
+    --color-text: #e5e7eb;
+    --color-heading: #f9fafb;
+    --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
+    --radius-lg: 18px;
+    --radius-pill: 999px;
+    --transition-fast: 150ms ease-out;
+    --transition-med: 220ms ease-out;
+    --nav-height: 64px;
+}
+

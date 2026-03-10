@@ -1,0 +1,104 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}Practice | AI Smart Worksheet{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'app/css/practice.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="practice-container">
+
+    <!-- Header -->
+    <div class="practice-header">
+        <h1>Practice</h1>
+        <div class="quiz-progress">
+            <span id="questionCounter">Question 1 / 10</span>
+        </div>
+    </div>
+
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div id="progressFill"></div>
+    </div>
+
+
+    <!-- Quiz Area -->
+    <div id="quizArea" class="quiz-area">
+
+        <!-- Question -->
+        <div class="question-card">
+            <h2 id="questionText">
+                Loading question...
+            </h2>
+        </div>
+
+        <!-- Answers -->
+        <div class="answers-grid">
+
+            <button class="answer-btn" data-answer="A" id="answerA">
+                Answer A
+            </button>
+
+            <button class="answer-btn" data-answer="B" id="answerB">
+                Answer B
+            </button>
+
+            <button class="answer-btn" data-answer="C" id="answerC">
+                Answer C
+            </button>
+
+            <button class="answer-btn" data-answer="D" id="answerD">
+                Answer D
+            </button>
+
+        </div>
+
+
+        <!-- Controls -->
+        <div class="quiz-controls">
+
+            <button id="nextButton" class="btn-primary">
+                Next Question
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Loading State -->
+    <div id="loadingState" class="loading-state">
+        <p>Loading questions...</p>
+    </div>
+
+
+    <!-- No Questions State -->
+    <div id="noQuestionsState" class="no-data hidden">
+
+        <img
+            src="{% static 'app/images/no-results.png' %}"
+            alt="No questions available"
+        >
+
+        <p>No questions available right now.</p>
+
+        <a href="{% url 'app:dashboard' %}" class="btn-secondary">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'app/js/api.js' %}"></script>
+<script src="{% static 'app/js/quiz-engine.js' %}"></script>
+<script src="{% static 'app/js/practice.js' %}"></script>
+{% endblock %}

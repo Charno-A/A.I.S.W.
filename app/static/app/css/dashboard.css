@@ -1,0 +1,67 @@
+.dashboard {
+    color: var(--color-text);
+}
+
+.dashboard .dashboard-header h1 {
+    color: var(--color-heading);
+}
+
+.dashboard .stats-grid {
+    margin-bottom: 1.6rem;
+}
+
+.dashboard .stat-card h3 {
+    color: var(--color-muted);
+}
+
+.dashboard .charts-grid {
+    margin-bottom: 1.6rem;
+}
+
+.dashboard .chart-card {
+    background: rgba(15, 23, 42, 0.98);
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.dashboard .chart-card h3 {
+    margin: 0 0 0.8rem;
+    font-size: 0.95rem;
+    color: var(--color-heading);
+}
+
+.dashboard .recent-sessions h2 {
+    margin: 0 0 0.8rem;
+    color: var(--color-heading);
+}
+
+.dashboard .session-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.dashboard .session-table th,
+.dashboard .session-table td {
+    text-align: left;
+    padding: 0.75rem 0.8rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.dashboard .session-table thead th {
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    background: rgba(2, 6, 23, 0.65);
+}
+
+.dashboard .session-table tbody td {
+    color: var(--color-text);
+}
+
+.dashboard .session-table tbody tr:hover td {
+    background: rgba(99, 102, 241, 0.06);
+}

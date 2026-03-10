@@ -1,0 +1,77 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}Home | AI Smart Worksheet{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'app/css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-text">
+        <h1>Practice Smarter with AI</h1>
+
+        <p>
+            AI Smart Worksheet helps you improve faster by adapting questions
+            to your skill level and analyzing your progress.
+        </p>
+
+        <div class="hero-actions">
+            {% if user.is_authenticated %}
+                <a href="{% url 'app:practice' %}" class="btn-primary">
+                    Start Practicing
+                </a>
+
+                <a href="{% url 'app:dashboard' %}" class="btn-secondary">
+                    View Dashboard
+                </a>
+            {% else %}
+                <a href="{% url 'app:login' %}" class="btn-primary">
+                    Login to Start
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img
+            src="{% static 'app/images/dashboard-illustration.png' %}"
+            alt="AI Learning Dashboard"
+        >
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature">
+        <h3>Adaptive Learning</h3>
+        <p>
+            Questions adjust automatically to your ability using our AI
+            difficulty engine.
+        </p>
+    </div>
+
+    <div class="feature">
+        <h3>Progress Tracking</h3>
+        <p>
+            Visual dashboards show how your skills improve over time.
+        </p>
+    </div>
+
+    <div class="feature">
+        <h3>Smart Practice</h3>
+        <p>
+            Focus on weak areas with personalized recommendations.
+        </p>
+    </div>
+
+</section>
+
+{% endblock %}
+
+</html>
